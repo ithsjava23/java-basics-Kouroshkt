@@ -47,16 +47,16 @@ public class App {
                     laddningsTid(elPris);
                     break;
                 case "5":
-                    float rang = (maxelPris(elPris) - minstelPris(elPris)) / 6;
+                    double rang = (maxelPris(elPris) - minstelPris(elPris)) / 5.0;
                     int maxInput = (int) (maxelPris(elPris) );
                     int minInput = (int) (minstelPris(elPris));
-                    diagram(elPris, rang, 6, maxInput);
+                    diagram(elPris, rang, 6, maxInput,minInput);
                     for (int i = 5; i > 1; i--) {
-                        diagram1(elPris, rang, i, maxInput);
+                        diagram1(elPris, rang, i, maxInput,minInput);
                     }
-                    diagram(elPris, rang, 1, minInput);
-                    System.out.println("    |------------------------------------------------------------------------");
-                    System.out.println("    | 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23");
+                    diagram(elPris, rang, 1, minInput,minInput);
+                    System.out.printf("   |------------------------------------------------------------------------\n");
+                    System.out.printf("   | 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23\n");
                     break;
                 case "e":
                     System.out.println("Programmet avslutar");
@@ -155,25 +155,31 @@ public class App {
         System.out.printf("Påbörja laddning klockan %02d\nMedelpris 4h: %.1f öre/kWh\n", position, medelminst);
     }
 
-    public static void diagram(int[] arraye, float rang, int counter, int input) {
-        char[] c = new char[24];
+    public static void diagram(int[] arraye, double rang, int counter, int input,float min) {
+        String[] c = new String[24];
         for (int i = 0; i < 24; i++) {
-            if (counter == 1) c[i] = 'x';
-            else if (arraye[i] <= input && arraye[i] >= ((counter - 1) * rang)) c[i] = 'x';
-            else c[i] = ' ';
+            if (counter == 1) c[i] = "x";
+            else if (arraye[i] <= input && arraye[i] >= ((int)(double)(counter - 1) * rang)+ min) c[i] = "x";
+            else c[i] = " ";
         }
-        System.out.printf("%04d|  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c\n", input, c[0], c[1], c[2],
-                c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16], c[17], c[18], c[19], c[20], c[21], c[22], c[23]);
+        if (input<100&&input>0) {
+            System.out.printf(" %d|  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s\n", input, c[0], c[1], c[2],
+                    c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16], c[17], c[18], c[19], c[20], c[21], c[22], c[23]);
+        }
+        else {
+            System.out.printf("%d|  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s\n", input, c[0], c[1], c[2],
+                    c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16], c[17], c[18], c[19], c[20], c[21], c[22], c[23]);
+        }
     }
 
-    public static void diagram1(int[] arraye, float rang, int counter, int input) {
-        char[] c = new char[24];
+    public static void diagram1(int[] arraye, double rang, int counter, int input,float min) {
+        String[] c = new String[24];
         for (int i = 0; i < 24; i++) {
-            if (counter == 1) c[i] = 'x';
-            else if (arraye[i] <= input && arraye[i] >= ((counter - 1) * rang)) c[i] = 'x';
-            else c[i] = ' ';
+            if (counter == 1) c[i] = "x";
+            else if (arraye[i] <= input && arraye[i] >= (int)((double)(counter - 1) * rang)+ min) c[i] = "x";
+            else c[i] = " ";
         }
-        System.out.printf("    |  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c\n", c[0], c[1], c[2],
+        System.out.printf("   |  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s\n", c[0], c[1], c[2],
                 c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11], c[12], c[13], c[14], c[15], c[16], c[17], c[18], c[19], c[20], c[21], c[22], c[23]);
     }
 }
