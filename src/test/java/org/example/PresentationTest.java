@@ -69,7 +69,7 @@ public class PresentationTest {
         provideInput(input);
         App.main(null);
         String response = """
-                100|  x                                                                    \s
+                100|  x  x                                                                 \s
                    |  x  x  x  x                                                           \s
                    |  x  x  x  x  x  x                                                     \s
                    |  x  x  x  x  x  x  x  x                                               \s
