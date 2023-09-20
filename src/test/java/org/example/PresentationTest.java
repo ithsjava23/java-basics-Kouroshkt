@@ -56,22 +56,24 @@ public class PresentationTest {
         assertThat(bos.toString()).contains(response);
     }
 
+
+
     @Test
     void createDiagram2() {
         String input = "1\n100\n99\n78\n77\n55\n54\n33\n32\n10\n9\n0\n-1\n-12\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n5\ne\n";
         //100
         //77
-        //54
+        //55
         //32
         //10
         //-12
-        //Medel 22.25
+        //Medel 22.4
         provideInput(input);
         App.main(null);
         String response = """
                 100|  x                                                                    \s
                    |  x  x  x  x                                                           \s
-                   |  x  x  x  x  x  x                                                     \s
+                   |  x  x  x  x  x                                                        \s
                    |  x  x  x  x  x  x  x  x                                               \s
                    |  x  x  x  x  x  x  x  x  x                                            \s
                 -12|  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
