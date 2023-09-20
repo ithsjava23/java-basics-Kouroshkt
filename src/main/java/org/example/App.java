@@ -155,7 +155,6 @@ public class App {
         System.out.printf("Påbörja laddning klockan %02d\nMedelpris 4h: %.1f öre/kWh\n", position, medelminst);
     }
 
-
     public static void diagram(int[] arraye, double rang, int counter, int input,float min) {
         String[] c = new String[24];
         for (int i = 0; i < 24; i++) {
