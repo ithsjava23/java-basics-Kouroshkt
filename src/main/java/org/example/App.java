@@ -160,7 +160,7 @@ public class App {
         String[] c = new String[24];
         for (int i = 0; i < 24; i++) {
             if (counter == 1) c[i] = "x";
-            else if (arraye[i] <= input && arraye[i] >= ((int)(double)(counter - 1) * rang)+ min) c[i] = "x";
+            else if (arraye[i] <= input && arraye[i] >= ((int)((counter - 1) * rang))+ min) c[i] = "x";
             else c[i] = " ";
         }
         if (input<100&&input>0) {
