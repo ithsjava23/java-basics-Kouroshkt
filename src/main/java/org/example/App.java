@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.forLanguageTag("sv-SE"));
         Scanner scanner = new Scanner(System.in).useLocale(Locale.forLanguageTag("sv-SE"));
         String val;
         int[] elPris = new int[24];
