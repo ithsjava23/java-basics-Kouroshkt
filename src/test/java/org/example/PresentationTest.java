@@ -56,6 +56,7 @@ public class PresentationTest {
         assertThat(bos.toString()).contains(response);
     }
 
+
     @Test
     void createDiagram2() {
         String input = "1\n100\n99\n78\n77\n55\n54\n33\n32\n10\n9\n0\n-1\n-12\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n5\ne\n";
