@@ -173,6 +173,7 @@ public class App {
         }
     }
 
+
     public static void diagram1(int[] arraye, double rang, int counter, int input,float min) {
         String[] c = new String[24];
         for (int i = 0; i < 24; i++) {
